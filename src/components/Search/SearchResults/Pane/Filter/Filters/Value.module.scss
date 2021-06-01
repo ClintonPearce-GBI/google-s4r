@@ -1,5 +1,5 @@
 .refinementContainer {
-  background-color: #30090918;
+  background-color: #dadada;
   display: flex;
   justify-content: space-between;
   cursor: pointer;
@@ -13,11 +13,11 @@
   white-space: no-wrap;
   overflow: hidden;
   &:hover {
-    background-color: #ff4838;
+    // background-color: #ff4838;
     transition: 50ms;
     font-weight: bold;
     & .pill {
-      color: #ff4838;
+      // color: #ff4838;
       background-color: #2a363b;
     }
   }
@@ -25,7 +25,8 @@
     text-align: center;
     padding: 0.2rem;
     width: 2.2rem;
-    background-color: #ff4838;
+    color: #fff;
+    background-color: #555;
     line-height: 1.2rem;
     height: 1.5rem;
     border-radius: 15px;

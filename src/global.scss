@@ -39,9 +39,9 @@ body {
 }
 
 /* width */
-::-webkit-scrollbar {
-  width: 2rem;
-}
+// ::-webkit-scrollbar {
+//   width: 2rem;
+// }
 
 /* Track */
 ::-webkit-scrollbar-track {
@@ -53,6 +53,6 @@ body {
   background-clip: padding-box;
   border-radius: 500px;
   min-height: 3rem;
-  background-color: #ff4838;
+  background-color: #555;
   border: 0.9rem solid rgba(0, 0, 0, 0);
 }
