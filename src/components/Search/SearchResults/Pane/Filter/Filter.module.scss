@@ -14,7 +14,6 @@
   overflow: hidden;
   scroll-snap-type: x proximity;
   transition: 200ms;
-
   & .title {
     display: flex;
     justify-content: space-between;
@@ -41,6 +40,11 @@
     width: 100%;
     overflow-y: scroll;
     background-color: #fff;
+    &.colors {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
     & .refinementContainer {
       background-color: #30090918;
       display: flex;

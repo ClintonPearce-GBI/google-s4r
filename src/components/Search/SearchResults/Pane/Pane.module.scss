@@ -1,11 +1,13 @@
 .resultsPane {
   min-width: 20rem;
-  min-height: 40rem;
+  max-width: 20rem;
+  height: 100%;
   background-color: #ff4838;
   border-radius: 10px 0 0 10px;
   display: flex;
   flex-direction: column;
   flex-grow: 1;
+  padding-bottom: 1rem;
 }
 
 .cap {

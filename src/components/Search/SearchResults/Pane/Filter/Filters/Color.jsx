@@ -5,7 +5,7 @@ const Color = (props) => {
   return (
     <>
       <div
-        className={styles.refinementContainer}
+        className={[styles.refinementContainer, styles.colors].join(" ")}
         style={{ backgroundColor: props.refinement.value.toLowerCase() }}
         key={props.refinement.value}
       >
