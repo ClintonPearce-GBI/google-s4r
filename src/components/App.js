@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Title from "./Title/Title";
-import Results from "./Search/SearchResults/SearchResults";
+import SearchResults from "./Search/SearchResults/SearchResults";
 
 const App = () => {
   //* L O G I C
@@ -41,7 +41,7 @@ const App = () => {
   return (
     <>
       <Title className="fade" handleSearch={handleSearch} />
-      {results && <Results searchResults={results} />}
+      {results && <SearchResults searchResults={results} />}
     </>
   );
 };

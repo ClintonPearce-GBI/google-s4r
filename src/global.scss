@@ -12,7 +12,6 @@ body {
   font-family: "Montserrat", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
   background-color: #fff;
   min-height: 100vh;
   display: flex;
@@ -53,6 +52,7 @@ body {
 ::-webkit-scrollbar-thumb {
   background-clip: padding-box;
   border-radius: 500px;
+  min-height: 3rem;
   background-color: #ff4838;
   border: 0.9rem solid rgba(0, 0, 0, 0);
 }

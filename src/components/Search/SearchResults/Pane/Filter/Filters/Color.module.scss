@@ -1,0 +1,40 @@
+.refinementContainer {
+  background-color: #30090918;
+  width: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  margin: 0.4rem 0.5rem;
+  margin-right: 0;
+  height: 2rem;
+  padding: 0.1rem 0.5rem;
+  font-size: 0.8rem;
+  border-radius: 5px;
+  white-space: no-wrap;
+  overflow: hidden;
+
+  & span {
+    background: inherit;
+    background-clip: text;
+    color: transparent;
+    filter: invert(1);
+  }
+  &:hover {
+    background-color: #ff4838;
+    transition: 50ms;
+    font-weight: bold;
+  }
+  & div {
+    transition: 50ms;
+  }
+
+  &::-webkit-scrollbar {
+    width: 1rem;
+    background-color: transparent;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: #2a363b;
+    border: 0.4rem solid rgba(0, 0, 0, 0);
+  }
+}

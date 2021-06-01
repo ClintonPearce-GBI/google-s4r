@@ -18,7 +18,7 @@ const SearchField = (props) => {
         defaultValue="Jeans"
       />
       <button className={styles.submit} type="submit">
-        Submit
+        Search
       </button>
     </form>
   );

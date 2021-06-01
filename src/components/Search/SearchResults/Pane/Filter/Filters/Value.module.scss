@@ -1,0 +1,46 @@
+.refinementContainer {
+  background-color: #30090918;
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+  align-items: center;
+  margin: 0.4rem 0.5rem;
+  margin-right: 0;
+  height: 2rem;
+  padding: 0.1rem 0.5rem;
+  font-size: 0.8rem;
+  border-radius: 5px;
+  white-space: no-wrap;
+  overflow: hidden;
+  &:hover {
+    background-color: #ff4838;
+    transition: 50ms;
+    font-weight: bold;
+    & .pill {
+      color: #ff4838;
+      background-color: #2a363b;
+    }
+  }
+  & .pill {
+    text-align: center;
+    padding: 0.2rem;
+    width: 2.2rem;
+    background-color: #ff4838;
+    line-height: 1.2rem;
+    height: 1.5rem;
+    border-radius: 15px;
+  }
+
+  & div {
+    transition: 50ms;
+  }
+
+  &::-webkit-scrollbar {
+    width: 1rem;
+    background-color: transparent;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: #2a363b;
+    border: 0.4rem solid rgba(0, 0, 0, 0);
+  }
+}

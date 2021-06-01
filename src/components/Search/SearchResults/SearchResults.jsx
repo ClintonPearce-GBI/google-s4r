@@ -4,12 +4,14 @@ import ProductCard from "../../Shared/ProductCard/ProductCard";
 import Pane from "./Pane/Pane";
 
 const SearchResults = (props) => {
-  const products = props.searchResults.records;
   return (
     <div className={styles.searchResults}>
-      <Pane />
+      <Pane
+        filters={props.searchResults.availableNavigation}
+        query={props.searchResults.query}
+      />
       <div className={styles.products}>
-        {products.map((product) => {
+        {props.searchResults.records.map((product) => {
           // * get the lowest variant price
           // * sort the vairents and return the first (lowest result)'s price
           const price = product.variants.sort(

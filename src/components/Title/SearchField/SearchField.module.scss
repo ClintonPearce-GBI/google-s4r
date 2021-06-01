@@ -43,6 +43,8 @@ $soft-white: #fffef9;
   font-weight: bold;
   transition: 200ms;
 
+  cursor: pointer;
+
   &:hover {
     color: $background-dark-alt;
     background-color: $soft-white;
