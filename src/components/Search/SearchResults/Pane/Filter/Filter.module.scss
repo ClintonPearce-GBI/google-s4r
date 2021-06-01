@@ -8,6 +8,8 @@
   box-shadow: 2px 2px 15px 2px #1818182a;
   transition: 100ms;
   max-height: 45rem;
+  display: flex;
+  flex-direction: column;
   scroll-snap-align: start;
   overflow: hidden;
   scroll-snap-type: x proximity;
