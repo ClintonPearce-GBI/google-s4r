@@ -1,0 +1,57 @@
+$background-dark-alt: #2a363b;
+$soft-white: #ff4838;
+
+.container {
+  width: 31%;
+  background-color: #ffffff;
+  border-radius: 5px;
+  margin: 0.5rem;
+  padding: 1rem;
+  object-fit: contain;
+  text-align: center;
+  border-radius: 10px;
+  transition: 100ms;
+  border: 1px solid #1818180a;
+  box-shadow: 2px 2px 25px 5px #1818182a;
+  & * {
+    margin: 0.5rem 0;
+    outline: none;
+    border: none;
+  }
+  & img {
+    position: relative;
+    height: 20em;
+    object-fit: contain;
+    border-radius: 10px;
+    filter: saturate(1);
+  }
+  & .title {
+    font-weight: 400;
+    height: 3rem;
+    display: grid;
+    place-items: center;
+  }
+  & .price {
+    font-weight: 600;
+    font-size: 1rem;
+    height: 1rem;
+  }
+  & button {
+    width: 60%;
+    height: 3rem;
+    color: $soft-white;
+    background-color: $background-dark-alt;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: 200ms;
+    &:hover {
+      color: $background-dark-alt;
+      background-color: $soft-white;
+    }
+  }
+  &:hover {
+    transition: 100ms;
+    transform: scale(1.035);
+  }
+}

@@ -1,0 +1,50 @@
+$background-dark: #2a363b;
+$background-dark-alt: #ff4838;
+$soft-white: #fffef9;
+
+.container {
+  display: flex;
+  justify-content: center;
+  transition: 400ms;
+}
+
+.search {
+  width: 20rem;
+  height: 2rem;
+  border-radius: 5px 0 0 5px;
+  outline: none;
+  border: none;
+
+  padding: 5px 1rem;
+
+  color: $soft-white;
+  background-color: $background-dark;
+
+  font-size: 1.3rem;
+
+  transition: 200ms;
+
+  &:focus {
+    background-color: $soft-white;
+    color: $background-dark-alt;
+  }
+}
+
+.submit {
+  height: 2rem;
+  border-radius: 0 5px 5px 0;
+  outline: none;
+  border: none;
+  padding: 5px 1rem;
+
+  color: #000;
+  background-color: $background-dark-alt;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: 200ms;
+
+  &:hover {
+    color: $background-dark-alt;
+    background-color: $soft-white;
+  }
+}
