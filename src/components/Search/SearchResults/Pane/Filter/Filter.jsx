@@ -9,7 +9,16 @@ const Filter = (props) => {
   const [expanded, setExpanded] = useState(false);
   const name = props.filterData.displayName;
   const refinements = props.filterData.refinements;
-  const type = props.filterType;
+  const type = props.filterData.type;
+
+  const sortedRefinements = () => {
+    let sortedRefinements = refinements;
+    if (name === "Color") {
+      sortedRefinements = refinements.sort((a, b) => a.count > b.count);
+    }
+    console.log(sortedRefinements);
+    return sortedRefinements;
+  };
 
   return (
     <div className={styles.category}>
@@ -23,16 +32,16 @@ const Filter = (props) => {
       <div
         className={`${styles.refinements} ${expanded ? styles.expanded : ""}`}
       >
-        {type === "Value" &&
-          refinements.map((refinement) => {
-            if (name === "Color") {
-              return <Color refinement={refinement} />;
-            } else if (type === "Range") {
-              return <Value refinement={refinement} />;
-            } else {
-              return <Value refinement={refinement} />;
-            }
-          })}
+        {sortedRefinements().map((refinement) => {
+          console.log(refinement);
+          if (name === "Color") {
+            return <Color refinement={refinement} />;
+          } else if (type === "Range") {
+            return <Value refinement={refinement} />;
+          } else {
+            return <Value refinement={refinement} />;
+          }
+        })}
       </div>
     </div>
   );

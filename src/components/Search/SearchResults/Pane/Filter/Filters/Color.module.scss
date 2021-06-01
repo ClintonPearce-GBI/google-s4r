@@ -1,6 +1,5 @@
 .refinementContainer {
   background-color: #30090918;
-  width: 2rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -13,17 +12,17 @@
   border-radius: 5px;
   white-space: no-wrap;
   overflow: hidden;
+  border: 5px solid transparent;
 
   & span {
-    background: inherit;
-    background-clip: text;
-    color: transparent;
-    filter: invert(1);
+    color: white;
+    text-shadow: 0px 0px 2px black, 0px 0px 2px black, 0px 0px 2px black,
+      0px 0px 2px black, 0px 0px 3px black;
+    font-weight: bold;
   }
   &:hover {
-    background-color: #ff4838;
+    border-color: #ff4838;
     transition: 50ms;
-    font-weight: bold;
   }
   & div {
     transition: 50ms;

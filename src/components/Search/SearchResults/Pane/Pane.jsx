@@ -16,13 +16,7 @@ const Pane = (props) => {
         </p>
       </div>
       {props.filters.map((filter) => {
-        return (
-          <Filter
-            key={filter.displayName}
-            filterData={filter}
-            filterType={filter.type}
-          />
-        );
+        return <Filter key={filter.displayName} filterData={filter} />;
       })}
     </div>
   );
