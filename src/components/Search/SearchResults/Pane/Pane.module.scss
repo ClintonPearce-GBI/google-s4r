@@ -1,8 +1,7 @@
 .resultsPane {
   min-width: 20rem;
-  max-width: 20rem;
-  height: 100%;
-  background-color: #ff4838;
+  min-height: 40rem;
+  background-color: #fff;
   border-radius: 10px 0 0 10px;
   display: flex;
   flex-direction: column;
@@ -11,7 +10,7 @@
 }
 
 .cap {
-  background-color: #cc3629;
+  background-color: #dadada;
   height: 5rem;
   border-radius: 10px 0 0 0;
   width: 100%;

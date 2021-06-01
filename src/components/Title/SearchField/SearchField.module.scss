@@ -1,5 +1,5 @@
 $background-dark: #2a363b;
-$background-dark-alt: #ff4838;
+$background-dark-alt: #dadada;
 $soft-white: #fffef9;
 
 .container {
@@ -17,16 +17,16 @@ $soft-white: #fffef9;
 
   padding: 5px 1rem;
 
-  color: $soft-white;
-  background-color: $background-dark;
+  color: #555;
+  background-color: $background-dark-alt;
 
   font-size: 1.3rem;
 
   transition: 200ms;
 
   &:focus {
-    background-color: $soft-white;
-    color: $background-dark-alt;
+    color: #000;
+    background-color: $background-dark-alt;
   }
 }
 
@@ -37,8 +37,8 @@ $soft-white: #fffef9;
   border: none;
   padding: 5px 1rem;
 
-  color: #000;
-  background-color: $background-dark-alt;
+  color: #fff;
+  background-color: #555;
   font-size: 1rem;
   font-weight: bold;
   transition: 200ms;
@@ -47,6 +47,6 @@ $soft-white: #fffef9;
 
   &:hover {
     color: $background-dark-alt;
-    background-color: $soft-white;
+    background-color: $background-dark;
   }
 }

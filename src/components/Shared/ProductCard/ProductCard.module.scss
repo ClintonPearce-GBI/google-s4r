@@ -1,5 +1,5 @@
 $background-dark-alt: #2a363b;
-$soft-white: #ff4838;
+$soft-white: #fff;
 
 .container {
   width: 31%;
@@ -12,7 +12,7 @@ $soft-white: #ff4838;
   border-radius: 10px;
   transition: 100ms;
   border: 1px solid #1818180a;
-  box-shadow: 2px 2px 25px 5px #1818182a;
+  box-shadow: 2px 2px 25px 5px #dadada;
   & * {
     margin: 0.5rem 0;
     outline: none;
