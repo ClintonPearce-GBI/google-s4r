@@ -13,8 +13,10 @@ const Filter = (props) => {
 
   const sortedRefinements = () => {
     let sortedRefinements = refinements;
+
+    // if color is loaded, fix the sorting
     if (name === "Color") {
-      sortedRefinements = refinements.sort((a, b) => a.count > b.count);
+      sortedRefinements = refinements.sort((a, b) => b.count - a.count);
     }
     console.log(sortedRefinements);
     return sortedRefinements;
@@ -30,7 +32,9 @@ const Filter = (props) => {
         <img src="/img/arrows-v.svg" alt="expand" />
       </div>
       <div
-        className={`${styles.refinements} ${expanded ? styles.expanded : ""}`}
+        className={`${styles.refinements} ${expanded ? styles.expanded : ""} ${
+          name === "Color" ? styles.colors : ""
+        }`}
       >
         {sortedRefinements().map((refinement) => {
           console.log(refinement);
