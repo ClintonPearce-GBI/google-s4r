@@ -11,12 +11,12 @@
   font-size: 0.8rem;
   border-radius: 5px;
   white-space: no-wrap;
-  transition: 50ms;
   overflow: hidden;
+  transition: 50ms;
   &:hover {
     // background-color: #ff4838;
-    box-shadow: 1px 1px 5px #2a363b;
     transition: 50ms;
+    box-shadow: 1px 1px 5px #2a363b;
     font-weight: bold;
     & .pill {
       // color: #ff4838;
@@ -24,8 +24,8 @@
     }
   }
   & .pill {
-    font-size: 0.7rem;
     text-align: center;
+    font-size: 0.7rem;
     padding: 0.2rem;
     width: 2.2rem;
     color: #fff;

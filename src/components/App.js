@@ -2,24 +2,36 @@ import { useState } from "react";
 import Title from "./Title/Title";
 import SearchResults from "./Search/SearchResults/SearchResults";
 
+// track GBI api calls
+let calls = 0;
+const refinements = [];
+
 const App = () => {
-  //* L O G I C
+  // L O G I C
 
   //! move to api later
-  const handleSearch = async (query) => {
+  const handleSearch = async (query, ...params) => {
+    calls++;
     const url = process.env.REACT_APP_API_URL;
     const collection = process.env.REACT_APP_COLLECTION;
     const area = process.env.REACT_APP_AREA;
-    const pageSize = 10;
-    let skip = 0;
+
+    console.log(`Call ${calls} - Search query: ${query}`);
+    const bodyParams = Object.assign({}, ...params);
+
+    bodyParams.refinements && refinements.push(bodyParams.refinements);
 
     const body = JSON.stringify({
       query,
-      collection,
+      refinements,
+      pageSize: bodyParams.pageSize,
+      skip: bodyParams.pageSize * bodyParams.page - bodyParams.pageSize,
+      sorts: bodyParams.sorts,
       area,
-      pageSize,
-      skip,
+      collection,
     });
+
+    console.log("Body Params: ", body);
 
     await fetch(url, {
       method: "POST",
@@ -40,7 +52,9 @@ const App = () => {
   return (
     <>
       <Title className="fade" handleSearch={handleSearch} />
-      {results && <SearchResults searchResults={results} />}
+      {results && (
+        <SearchResults searchResults={results} handleSearch={handleSearch} />
+      )}
     </>
   );
 };

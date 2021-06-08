@@ -30,7 +30,6 @@
     & img {
       width: 1rem;
       height: 1rem;
-      filter: invert(1);
     }
     &:hover {
       text-shadow: 1px 1px 2px rgb(119, 119, 119);
@@ -72,6 +71,7 @@
       }
       & .pill {
         text-align: center;
+        font-size: 0.7rem;
         padding: 0.2rem;
         width: 2.2rem;
         background-color: #dadada;
@@ -96,5 +96,23 @@
   .expanded {
     transition: 1500ms;
     max-height: 200rem;
+  }
+}
+
+.invert {
+  filter: invert(1);
+}
+
+.fade {
+  animation: fade 300ms;
+}
+
+@keyframes fade {
+  0% {
+    filter: opacity(0) invert(1);
+  }
+
+  100% {
+    filter: opacity(1) invert(1);
   }
 }

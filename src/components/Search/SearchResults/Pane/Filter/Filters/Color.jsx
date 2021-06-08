@@ -5,6 +5,7 @@ const Color = (props) => {
   return (
     <>
       <div
+        onClick={() => props.handleFilter(props.refinement)}
         className={[styles.refinementContainer, styles.colors].join(" ")}
         style={{ backgroundColor: props.refinement.value.toLowerCase() }}
         key={props.refinement.value}
