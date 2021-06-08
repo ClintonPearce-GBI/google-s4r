@@ -31,7 +31,6 @@ const App = () => {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
         setResults(data);
       });
   };

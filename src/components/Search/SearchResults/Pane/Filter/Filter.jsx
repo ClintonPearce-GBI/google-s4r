@@ -5,7 +5,6 @@ import Value from "./Filters/Value";
 import Color from "./Filters/Color";
 
 const Filter = (props) => {
-  console.log(props.filterData);
   const [expanded, setExpanded] = useState(false);
   const name = props.filterData.displayName;
   const refinements = props.filterData.refinements;
@@ -18,7 +17,6 @@ const Filter = (props) => {
     if (name === "Color") {
       sortedRefinements = refinements.sort((a, b) => b.count - a.count);
     }
-    console.log(sortedRefinements);
     return sortedRefinements;
   };
 
@@ -37,7 +35,6 @@ const Filter = (props) => {
         }`}
       >
         {sortedRefinements().map((refinement) => {
-          console.log(refinement);
           if (name === "Color") {
             return <Color refinement={refinement} />;
           } else if (type === "Range") {
