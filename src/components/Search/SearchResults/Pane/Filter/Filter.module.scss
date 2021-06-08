@@ -2,7 +2,7 @@
   position: relative;
   left: 5%;
   width: 90%;
-  background-color: #555555;
+  background-color: #343142;
   border-radius: 5px;
   margin-top: 1rem;
   box-shadow: 2px 2px 15px 2px #1818182a;
@@ -32,11 +32,12 @@
       height: 1rem;
     }
     &:hover {
-      filter: invert(1);
+      text-shadow: 1px 1px 2px rgb(119, 119, 119);
     }
   }
   & .refinements {
-    max-height: 7.5rem;
+    padding: 0.5rem 0.1rem;
+    max-height: 10rem;
     transition: 500ms;
     width: 100%;
     overflow-y: scroll;
@@ -55,7 +56,6 @@
       margin: 0.4rem 0.5rem;
       margin-right: 0;
       height: 2rem;
-      padding: 0.1rem 0.5rem;
       font-size: 0.8rem;
       border-radius: 5px;
       white-space: no-wrap;
@@ -71,6 +71,7 @@
       }
       & .pill {
         text-align: center;
+        font-size: 0.7rem;
         padding: 0.2rem;
         width: 2.2rem;
         background-color: #dadada;
@@ -95,5 +96,23 @@
   .expanded {
     transition: 1500ms;
     max-height: 200rem;
+  }
+}
+
+.invert {
+  filter: invert(1);
+}
+
+.fade {
+  animation: fade 300ms;
+}
+
+@keyframes fade {
+  0% {
+    filter: opacity(0) invert(1);
+  }
+
+  100% {
+    filter: opacity(1) invert(1);
   }
 }
