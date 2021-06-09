@@ -17,7 +17,7 @@ on:
     branches:
       - master
 jobs:
-  setup, Build, Publish, and Deploy:
+  setup-build-publish-deploy:
     name: Setup, Build, Publish, and Deploy
     runs-on: ubuntu-latest
     steps:
