@@ -26,7 +26,7 @@ const App = () => {
     // flatten an array of objects into a single
     const bodyParams = Object.assign({}, ...params);
 
-    // update gloval vars
+    // get and update the page size global
     if (bodyParams.pageSize) pageSize = bodyParams.pageSize;
 
     // handle refinements
@@ -38,11 +38,15 @@ const App = () => {
         : refinements.push(bodyParams.refinement);
     }
 
+    // hande skip
+    const totalSkip = pageSize * bodyParams.page - pageSize;
+    const skip = totalSkip || 0;
+
     const body = JSON.stringify({
       query,
       refinements,
       pageSize,
-      skip: bodyParams.pageSize * bodyParams.page - bodyParams.pageSize,
+      skip,
       sorts: bodyParams.sorts,
       area,
       collection,

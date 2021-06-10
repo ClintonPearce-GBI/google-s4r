@@ -33,12 +33,21 @@ const SearchResults = (props) => {
     props.handleSearch(products.query, {
       refinement,
       remove,
+      page: 1,
     });
   };
 
-  const handlePageNav = (pageSize) => {
+  const handlePageSizeChange = (pageSize) => {
     props.handleSearch(products.query, {
       pageSize,
+      page: 1,
+    });
+  };
+
+  const handleChangePage = (page) => {
+    searchResultsContainer.current.scroll({ top: 0, behavior: "smooth" });
+    props.handleSearch(products.query, {
+      page,
     });
   };
 
@@ -57,8 +66,9 @@ const SearchResults = (props) => {
       )}
       {props.searchResults?.pageInfo?.recordEnd ? (
         <ProductNavBar
-          handlePageNav={handlePageNav}
-          currentPageSize={props.searchResults.pageInfo.recordEnd}
+          handlePageSizeChange={handlePageSizeChange}
+          handleChangePage={handleChangePage}
+          currentPageSize={props.searchResults.originalRequest.pageSize}
           totalRecordCount={props.searchResults.totalRecordCount}
         />
       ) : (
