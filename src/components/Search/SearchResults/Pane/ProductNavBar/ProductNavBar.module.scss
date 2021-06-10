@@ -24,11 +24,8 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    width: 5rem;
+    width: 3rem;
     height: 80%;
-    background-color: transparent;
-    outline: none;
-    border: none;
     border-radius: 25px;
     transition: 2000ms;
     padding: 0.2rem;
@@ -63,6 +60,40 @@
     & .pageOpen {
       display: flex;
       animation: openPageBubbles 500ms both;
+    }
+  }
+
+  & .page {
+    margin-left: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    & .currentPage {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 3rem;
+      height: 80%;
+      border-radius: 25px;
+      font-weight: 500;
+      margin: 0 0.3rem;
+      &:hover {
+        background-color: #c2b6b6;
+      }
+    }
+    & .totalPages {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 3rem;
+      height: 80%;
+      border-radius: 25px;
+      margin: 0 0.3rem;
+      font-weight: 500;
+    }
+    & strong {
+      margin: 0 0.5rem;
     }
   }
 }

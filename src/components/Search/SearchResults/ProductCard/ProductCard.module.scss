@@ -25,6 +25,7 @@ $soft-white: #eae8f7;
     cursor: pointer;
     position: relative;
     height: 28em;
+    max-width: 100%;
     object-fit: contain;
     border-radius: 10px;
     filter: saturate(1);

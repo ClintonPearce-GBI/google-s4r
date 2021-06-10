@@ -5,6 +5,7 @@ import SearchResults from "./Search/SearchResults/SearchResults";
 // track GBI api calls
 let calls = 0;
 let refinements = [];
+let pageSize = 10;
 
 const App = () => {
   // L O G I C
@@ -25,7 +26,8 @@ const App = () => {
     // flatten an array of objects into a single
     const bodyParams = Object.assign({}, ...params);
 
-    // handle a new query
+    // update gloval vars
+    if (bodyParams.pageSize) pageSize = bodyParams.pageSize;
 
     // handle refinements
     if (bodyParams.refinement) {
@@ -39,7 +41,7 @@ const App = () => {
     const body = JSON.stringify({
       query,
       refinements,
-      pageSize: bodyParams.pageSize,
+      pageSize,
       skip: bodyParams.pageSize * bodyParams.page - bodyParams.pageSize,
       sorts: bodyParams.sorts,
       area,

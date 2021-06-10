@@ -11,10 +11,18 @@ const Pane = (props) => {
     <div className={styles.resultsPane}>
       <div className={styles.cap}>
         <p>
-          <small>Viewing</small>
-        </p>
-        <p>
-          <strong>"{query}"</strong>
+          <strong>{props.totalProducts.toLocaleString()}&nbsp;</strong>
+          {query ? (
+            <>
+              <small>Results&nbsp;</small>
+              <small>for&nbsp;</small>
+              <strong>{query}</strong>
+            </>
+          ) : (
+            <>
+              <strong>Products</strong>
+            </>
+          )}
         </p>
       </div>
       {props.enabledFilters &&

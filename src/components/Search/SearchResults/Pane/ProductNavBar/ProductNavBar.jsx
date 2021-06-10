@@ -3,7 +3,7 @@ import styles from "./ProductNavBar.module.scss";
 
 const ProductNavBar = (props) => {
   // C H A N G E   P A G E   S I Z E
-  const [pageSize, setPageSize] = useState(10);
+  const [pageSize, setPageSize] = useState(props.currentPageSize);
   const [pageOpen, setPageOpen] = useState(false);
 
   const pageSizeOpts = [10, 25, 50];
@@ -15,14 +15,14 @@ const ProductNavBar = (props) => {
 
   // C H A N G E   P A G E
   const [page, setPage] = useState(1);
+  const [pageControls, setPageControls] = useState(false);
+
   const totalRecords = props.totalRecordCount;
   const totalPages = Math.ceil(totalRecords / pageSize);
-  console.log(totalPages);
 
   return (
     <div className={styles.nav}>
       <small>Page Size</small>
-
       <div
         className={styles.pageSize}
         onClick={() => setPageOpen(pageOpen ? false : true)}
@@ -47,6 +47,12 @@ const ProductNavBar = (props) => {
               </div>
             );
           })}
+      </div>
+      <div className={styles.page}>
+        <small>Page </small>
+        <div className={styles.currentPage}>{page}</div>
+        <small> of </small>
+        <div className={styles.totalPages}>{totalPages}</div>
       </div>
     </div>
   );
