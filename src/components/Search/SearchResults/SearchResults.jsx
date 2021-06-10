@@ -8,6 +8,7 @@ import Pane from "./Pane/Pane";
 const SearchResults = (props) => {
   const [fadeProducts, setFadeProducts] = useState(false);
   const [products, setProducts] = useState(props.searchResults);
+  const [resetPage, setResetPage] = useState(false);
 
   const searchResultsContainer = useRef(null);
 
@@ -22,7 +23,7 @@ const SearchResults = (props) => {
     setFadeProducts(true);
     setTimeout(() => {
       setFadeProducts(false);
-    }, 800);
+    }, 500);
     return () => {
       setProducts([]);
     };
@@ -35,6 +36,7 @@ const SearchResults = (props) => {
       remove,
       page: 1,
     });
+    setResetPage(true);
   };
 
   const handlePageSizeChange = (pageSize) => {
@@ -70,6 +72,7 @@ const SearchResults = (props) => {
           handleChangePage={handleChangePage}
           currentPageSize={props.searchResults.originalRequest.pageSize}
           totalRecordCount={props.searchResults.totalRecordCount}
+          resetPage={resetPage}
         />
       ) : (
         ""

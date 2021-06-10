@@ -16,7 +16,22 @@ const ProductNavBar = (props) => {
   useEffect(() => {
     setPageOpen(false);
     setPage(1);
-  }, [pageSize, props.totalRecordCount]);
+  }, [pageSize]);
+
+  useEffect(() => {
+    setPage(1);
+  }, [props.resetPage]);
+
+  const validatePage = (page) => {
+    if (page < 1) {
+      setPage(page + 1);
+    } else if (page > totalPages) {
+      setPage(page - 1);
+    } else {
+      setPage(page);
+      props.handleChangePage(page);
+    }
+  };
 
   const pageInput = useRef(null);
 
@@ -69,8 +84,7 @@ const ProductNavBar = (props) => {
           <div
             className={styles.control}
             onClick={() => {
-              props.handleChangePage(page - 1);
-              setPage(page - 1);
+              validatePage(page - 1);
             }}
           >
             &#10094;
@@ -85,8 +99,7 @@ const ProductNavBar = (props) => {
             <div
               className={styles.check}
               onClick={() => {
-                props.handleChangePage(pageInput.current.value);
-                setPage(pageInput.current.value);
+                validatePage(pageInput.current.value);
               }}
             >
               &#10003;
@@ -95,8 +108,7 @@ const ProductNavBar = (props) => {
           <div
             className={styles.control}
             onClick={() => {
-              props.handleChangePage(page + 1);
-              setPage(page + 1);
+              validatePage(page + 1);
             }}
           >
             &#10095;
