@@ -1,0 +1,90 @@
+.nav {
+  position: absolute;
+  padding: 0 1rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: -1rem;
+  right: 2%;
+  height: 2.5rem;
+  background-color: #e9dfdf;
+  border: 2px solid #e7e3e3;
+  box-shadow: 5px 5px 15px 2px #1818182a;
+  border-radius: 25px;
+  z-index: 5;
+  filter: opacity(0.3);
+  transition: 2000ms;
+  &:hover {
+    transition: 150ms;
+    filter: opacity(1);
+  }
+  & .pageSize {
+    margin-left: 1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 5rem;
+    height: 80%;
+    background-color: transparent;
+    outline: none;
+    border: none;
+    border-radius: 25px;
+    transition: 2000ms;
+    padding: 0.2rem;
+    user-select: none;
+    font-weight: 500;
+    &:hover {
+      transition: 150ms;
+      background-color: #c2b6b6;
+    }
+    & .activeSize {
+      position: fixed;
+    }
+    & .outerBubble {
+      display: none;
+      margin-right: 0.25rem;
+      margin-left: 0.25rem;
+      align-items: center;
+      justify-content: center;
+      min-width: 2.5rem;
+      min-height: 2.5rem;
+      border-radius: 50%;
+      transition: 300ms;
+      background-color: #bbcdda;
+      animation: openPageBubbles 500ms reverse;
+      &:hover {
+        transition: 300ms;
+        background-color: #000;
+        color: #bbcdda;
+      }
+    }
+
+    & .pageOpen {
+      display: flex;
+      animation: openPageBubbles 500ms both;
+    }
+  }
+}
+
+@keyframes openPageBubbles {
+  0% {
+    position: relative;
+    transform: translateY(0rem) scale(1);
+  }
+  100% {
+    transform: translateY(-3rem) scale(1);
+  }
+}
+
+@keyframes surge {
+  0% {
+    box-shadow: 0 0 15px 2px #bbcdda;
+  }
+  50% {
+    box-shadow: 0 0 15px 2px #9db4c4;
+  }
+  100% {
+    box-shadow: 0 0 15px 2px #a5c8e0;
+  }
+}

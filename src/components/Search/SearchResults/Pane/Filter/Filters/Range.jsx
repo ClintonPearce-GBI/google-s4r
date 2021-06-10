@@ -8,14 +8,18 @@ const Range = (props) => {
   return (
     <>
       <div
-        className={styles.refinementContainer}
+        className={`${styles.refinementContainer} ${
+          props?.enabled && styles.enabled
+        }`}
         key={props.refinement.value}
-        onClick={() => props.handleFilter(props.refinement)}
+        onClick={() => props.handleFilter(props.refinement, props.enabled)}
       >
         <div>
           ${low} to ${high}
         </div>
-        <div className={styles.pill}>{count}</div>
+        <div className={`${styles.pill} ${props?.enabled && styles.enabled}`}>
+          {props?.enabled ? <>&#10006;</> : count}
+        </div>
       </div>
     </>
   );

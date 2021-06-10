@@ -22,6 +22,7 @@ $soft-white: #eae8f7;
     border: none;
   }
   & img {
+    cursor: pointer;
     position: relative;
     height: 28em;
     object-fit: contain;
@@ -53,6 +54,7 @@ $soft-white: #eae8f7;
     font-weight: bold;
     transition: 200ms;
     backface-visibility: hidden;
+    cursor: pointer;
     &:hover {
       color: $background-dark-alt;
       background-color: $soft-white;

@@ -5,12 +5,16 @@ const Color = (props) => {
   return (
     <>
       <div
-        onClick={() => props.handleFilter(props.refinement)}
-        className={[styles.refinementContainer, styles.colors].join(" ")}
+        onClick={() => props.handleFilter(props.refinement, props.enabled)}
+        className={[
+          styles.refinementContainer,
+          styles.colors,
+          props.enabled ? styles.enabled : "",
+        ].join(" ")}
         style={{ backgroundColor: props.refinement.value.toLowerCase() }}
         key={props.refinement.value}
       >
-        <span>{props.refinement.count}</span>
+        <span>{props?.enabled ? <>&#10006;</> : props.refinement.count}</span>
       </div>
     </>
   );

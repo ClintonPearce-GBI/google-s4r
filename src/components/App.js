@@ -4,22 +4,37 @@ import SearchResults from "./Search/SearchResults/SearchResults";
 
 // track GBI api calls
 let calls = 0;
-const refinements = [];
+let refinements = [];
 
 const App = () => {
   // L O G I C
+  const url = process.env.REACT_APP_API_URL;
+  const collection = process.env.REACT_APP_COLLECTION;
+  const area = process.env.REACT_APP_AREA;
 
   //! move to api later
   const handleSearch = async (query, ...params) => {
+    // track the search count (dev)
     calls++;
-    const url = process.env.REACT_APP_API_URL;
-    const collection = process.env.REACT_APP_COLLECTION;
-    const area = process.env.REACT_APP_AREA;
+    // is it a new search
+    if (results?.query !== query) refinements = [];
 
-    console.log(`Call ${calls} - Search query: ${query}`);
+    // log
+    console.info(`Call ${calls} - Search query: ${query}`);
+
+    // flatten an array of objects into a single
     const bodyParams = Object.assign({}, ...params);
 
-    bodyParams.refinements && refinements.push(bodyParams.refinements);
+    // handle a new query
+
+    // handle refinements
+    if (bodyParams.refinement) {
+      bodyParams.remove
+        ? (refinements = refinements.filter(
+            (f) => f.navigationName !== bodyParams.refinement.navigationName
+          ))
+        : refinements.push(bodyParams.refinement);
+    }
 
     const body = JSON.stringify({
       query,
@@ -31,8 +46,6 @@ const App = () => {
       collection,
     });
 
-    console.log("Body Params: ", body);
-
     await fetch(url, {
       method: "POST",
       body,
@@ -43,6 +56,7 @@ const App = () => {
     })
       .then((response) => response.json())
       .then((data) => {
+        console.log("Dev: ", data);
         setResults(data);
       });
   };

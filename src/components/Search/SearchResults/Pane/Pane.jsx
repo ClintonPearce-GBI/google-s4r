@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./Pane.module.scss";
 
 import Filter from "./Filter/Filter";
+import EnabledFilter from "./Filter/EnabledFilter";
 
 const Pane = (props) => {
   const query = props.query;
@@ -16,6 +17,16 @@ const Pane = (props) => {
           <strong>"{query}"</strong>
         </p>
       </div>
+      {props.enabledFilters &&
+        props.enabledFilters.map((filter) => {
+          return (
+            <EnabledFilter
+              key={filter.displayName}
+              filterData={filter}
+              handleFilter={props.handleFilter}
+            />
+          );
+        })}
       {props.filters &&
         props.filters.map((filter) => {
           return (
