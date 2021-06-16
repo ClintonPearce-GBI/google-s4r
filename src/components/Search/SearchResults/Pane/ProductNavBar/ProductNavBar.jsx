@@ -10,19 +10,19 @@ const ProductNavBar = (props) => {
   const [page, setPage] = useState(1);
   const [controlsOpen, setControlsOpen] = useState(false);
 
+  // page size options
   const pageSizeOpts = [10, 25, 50];
   const pageSizeBubbles = useRef([]);
 
+  // go to page 1 when the page size is changed
   useEffect(() => {
     setPageOpen(false);
     setPage(1);
-  }, [pageSize]);
+  }, [pageSize, props.resetPage]);
 
-  useEffect(() => {
-    setPage(1);
-  }, [props.resetPage]);
-
-  const validatePage = (page) => {
+  // validate the page isn't below or above the max count
+  const validatePage = (pageNum) => {
+    const page = parseInt(pageNum);
     if (page < 1) {
       setPage(page + 1);
     } else if (page > totalPages) {
@@ -33,6 +33,7 @@ const ProductNavBar = (props) => {
     }
   };
 
+  // get the page input as a ref
   const pageInput = useRef(null);
 
   const totalRecords = props.totalRecordCount;

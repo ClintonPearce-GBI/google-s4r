@@ -8,8 +8,9 @@ const Title = (props) => {
       <div className={styles.googleTitle}>
         <img
           className={styles.googleLogo}
-          src="/img/google.webp"
-          alt="Google Logo"
+          src="/img/gbi_vector.svg"
+          // src="/img/google.webp"
+          alt="GroupBy Inc"
         />
         <span className={styles.googleRetail}>for Retail</span>
       </div>

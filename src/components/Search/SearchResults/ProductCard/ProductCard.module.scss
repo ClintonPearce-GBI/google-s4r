@@ -32,7 +32,7 @@ $soft-white: #eae8f7;
     object-fit: contain;
     border-radius: 10px;
     filter: saturate(1);
-    transition: 400ms;
+    transition: transform 2000ms;
     box-shadow: 0 0 15px 2px #e7e5e5;
   }
   & .title {

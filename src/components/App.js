@@ -17,7 +17,7 @@ const App = () => {
   const handleSearch = async (query, ...params) => {
     // track the search count (dev)
     calls++;
-    // is it a new search
+    // is it a new search clear the refinements
     if (results?.query !== query) refinements = [];
 
     // log
