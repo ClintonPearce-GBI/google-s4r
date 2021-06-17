@@ -9,24 +9,23 @@ $soft-white: #fffef9;
 }
 
 .search {
-  width: 20rem;
   height: 2rem;
+  width: 10rem;
   border-radius: 5px 0 0 5px;
   outline: none;
   border: none;
-
   padding: 5px 1rem;
-
   color: #555;
   background-color: $background-dark-alt;
-
   font-size: 1.3rem;
-
   transition: 200ms;
-
   &:focus {
     color: #000;
     background-color: $background-dark-alt;
+  }
+
+  @media screen and (min-width: 900px) {
+    width: 20rem;
   }
 }
 

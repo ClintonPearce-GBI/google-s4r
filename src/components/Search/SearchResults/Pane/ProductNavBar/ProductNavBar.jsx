@@ -20,15 +20,24 @@ const ProductNavBar = (props) => {
     setPage(1);
   }, [pageSize, props.resetPage]);
 
+  useEffect(() => {
+    pageInput.current.value = page;
+  }, [page]);
+
   // validate the page isn't below or above the max count
   const validatePage = (pageNum) => {
     const page = parseInt(pageNum);
     if (page < 1) {
-      setPage(page + 1);
+      setPage(1);
+      pageInput.current.value = 1;
+      props.handleChangePage(1);
     } else if (page > totalPages) {
-      setPage(page - 1);
+      setPage(totalPages);
+      pageInput.current.value = totalPages;
+      props.handleChangePage(totalPages);
     } else {
       setPage(page);
+      pageInput.current.value = page;
       props.handleChangePage(page);
     }
   };

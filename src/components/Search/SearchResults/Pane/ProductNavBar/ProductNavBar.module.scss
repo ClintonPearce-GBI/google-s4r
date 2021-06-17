@@ -5,16 +5,18 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  margin-top: -1rem;
+  margin-top: -1.5rem;
   right: 2%;
   height: 2.5rem;
   background-color: #dedeeb;
   box-shadow: 5px 5px 15px 2px #1818182a;
   border-radius: 25px;
-  z-index: 5;
+  z-index: 6;
   filter: opacity(0.3);
   transition: 2000ms;
-
+  @media screen and (min-width: 900px) {
+    margin-top: -1.5rem;
+  }
   &:hover {
     transition: 150ms;
     filter: opacity(1);
@@ -204,7 +206,7 @@
     filter: opacity(0);
   }
   100% {
-    transform: translateY(-3rem) scale(1);
+    transform: translateY(3rem) scale(1);
     filter: opacity(1);
   }
 }
@@ -215,7 +217,7 @@
     filter: opacity(0);
   }
   100% {
-    transform: translateY(-3rem) scale(1);
+    transform: translateY(3rem) scale(1);
     filter: opacity(1);
   }
 }
