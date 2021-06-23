@@ -8,6 +8,9 @@ let refinements = [];
 let pageSize = 10;
 
 const App = () => {
+  // state
+  const [results, setResults] = useState(null);
+
   // L O G I C
   const url = process.env.REACT_APP_API_URL;
   const collection = process.env.REACT_APP_COLLECTION;
@@ -17,6 +20,7 @@ const App = () => {
   const handleSearch = async (query, ...params) => {
     // track the search count (dev)
     calls++;
+
     // is it a new search clear the refinements
     if (results?.query !== query) refinements = [];
 
@@ -52,7 +56,7 @@ const App = () => {
       collection,
     });
 
-    await fetch(url, {
+    return await fetch(url, {
       method: "POST",
       body,
       headers: {
@@ -66,8 +70,6 @@ const App = () => {
         setResults(data);
       });
   };
-
-  const [results, setResults] = useState(null);
 
   return (
     <>

@@ -31,7 +31,7 @@ const Filter = (props) => {
   useEffect(() => {
     const title = filterTitle.current;
     const contentHeight = title.nextSibling.offsetHeight;
-    setExpandeder(contentHeight > 140);
+    setExpandeder(contentHeight > 150);
   }, []);
 
   return (

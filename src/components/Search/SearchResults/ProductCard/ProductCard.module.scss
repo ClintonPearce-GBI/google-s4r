@@ -28,7 +28,7 @@ $soft-white: #eae8f7;
     outline: none;
     border: none;
   }
-  & img {
+  & .productImage {
     cursor: pointer;
     position: relative;
     max-width: 100%;
@@ -55,10 +55,7 @@ $soft-white: #eae8f7;
   & .price {
     font-weight: 600;
     font-size: 1.2rem;
-    @media screen and (min-width: 900px) {
-      font-size: 1rem;
-      height: 1rem;
-    }
+    height: 1.2rem;
   }
   & button {
     width: 100%;
