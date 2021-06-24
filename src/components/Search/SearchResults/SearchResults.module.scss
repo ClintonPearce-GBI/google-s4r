@@ -7,6 +7,7 @@ $background: #edebf37c;
   height: 100vh;
   width: 100vw;
   display: flex;
+  animation: blur 800ms;
   & h1 {
     margin-top: 10rem;
     width: 100%;

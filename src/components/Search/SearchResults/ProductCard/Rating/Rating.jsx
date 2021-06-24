@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./Rating.module.scss";
 
 const Rating = (props) => {
+  // is the rating hovered
+  const [hovered, setHovered] = useState(false);
+
   // get the rating
   let rating = props.rating?.averageRating;
 
@@ -35,7 +38,11 @@ const Rating = (props) => {
   })();
 
   return (
-    <div className={styles.rating}>
+    <div
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      className={[styles.rating, rating ? "" : styles.empty].join(" ")}
+    >
       {stars.map((star, index) => {
         const src =
           star === 1
@@ -45,6 +52,11 @@ const Rating = (props) => {
             : "/img/star-regular.svg";
         return <img className={styles.star} src={src} key={index} alt="" />;
       })}
+      <span
+        className={[styles.textRating, hovered ? styles.visible : ""].join(" ")}
+      >
+        {rating || "No Rating :("}
+      </span>
     </div>
   );
 };

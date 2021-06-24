@@ -15,10 +15,8 @@ const SearchResults = (props) => {
 
   // the container for our search results
   const searchResultsContainer = useRef(null);
-  console.log("Rendering");
 
   // when the search results change, rebuild the search results/product cards
-  // ! TODO figure out why Product is rendering 3 times per product
   useEffect(() => {
     // set the current products to the latest search results
     setProducts(props.searchResults);

@@ -1,0 +1,22 @@
+.container {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  width: 2rem;
+  height: 2rem;
+  background-color: red;
+  border: 0.1rem solid #000 !important;
+  border-radius: 50%;
+  transition: 300ms;
+  cursor: pointer;
+  filter: opacity(0.3);
+  z-index: 3;
+  left: 2rem;
+  top: 2rem;
+  &:hover {
+    filter: opacity(1);
+  }
+  &.active {
+    filter: opacity(1);
+  }
+}
