@@ -1,0 +1,135 @@
+$background-dark-alt: #2a363b;
+$soft-white: #eae8f7;
+
+.container {
+  position: relative;
+  width: 100%;
+  background-color: #ffffff;
+  border-radius: 5px;
+  padding: 1rem;
+  margin: 0.5rem;
+  object-fit: contain;
+  text-align: center;
+  border-radius: 10px;
+  transition: 300ms;
+  border: 1px solid #1818180a;
+  box-shadow: 2px 2px 15px 5px #dadada;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  @media screen and (min-width: 900px) {
+    width: 30%;
+    margin: 1rem;
+  }
+
+  & * {
+    margin: 0.5rem 0;
+    outline: none;
+    border: none;
+  }
+  & .productImage {
+    cursor: pointer;
+    position: relative;
+    max-width: 100%;
+    object-fit: contain;
+    border-radius: 10px;
+    filter: saturate(1);
+    transition: transform 2000ms;
+    box-shadow: 0 0 15px 2px #e7e5e5;
+    @media screen and (min-width: 900px) {
+      height: 28em;
+    }
+  }
+  & .title {
+    font-weight: 400;
+    font-size: 1.2rem;
+    overflow: hidden;
+    display: grid;
+    place-items: center;
+    color: black;
+    @media screen and (min-width: 900px) {
+      height: 5rem;
+    }
+  }
+  & .pricing {
+    width: 100%;
+    font-weight: 600;
+    display: flex;
+    height: 3rem;
+    margin: 0;
+    justify-content: center;
+    font-size: 1.5rem;
+    align-items: center;
+    & .price {
+      width: 100%;
+      margin: 0;
+    }
+    & .discount {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      align-items: center;
+      position: absolute;
+      margin: 0;
+      transform: translate(0rem, -1.5rem);
+      color: #797979;
+      & .originalPrice {
+        font-size: 1.5rem;
+        text-decoration: line-through;
+      }
+      & .percent {
+        position: fixed;
+        transform: none !important;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 1rem;
+        margin-left: 50%;
+        font-size: 1rem;
+        transform: translate3d(0rem, 0.5rem, 0) rotate(0deg) perspective(1px) !important;
+        text-align: right;
+        text-decoration: solid;
+        color: white;
+        background-color: red;
+        padding: 0.3rem 0.5rem;
+        border-radius: 25px;
+        transition: 400ms;
+        &:hover {
+          transform: translate3d(0rem, 0.5rem, 0) rotate(10deg) perspective(1px) !important;
+          text-transform: none !important;
+        }
+      }
+    }
+  }
+
+  & button {
+    width: 100%;
+    height: 3rem;
+    color: $soft-white;
+    background-color: $background-dark-alt;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: 200ms;
+    backface-visibility: hidden;
+    cursor: pointer;
+    &:hover {
+      color: $background-dark-alt;
+      background-color: $soft-white;
+    }
+    @media screen and (min-width: 900px) {
+      width: 60%;
+    }
+  }
+  &:hover {
+    box-shadow: 0 0 15px 2px #e7e5e5;
+    transition: 200ms;
+    transform: scale(1.04) translate3d(0, 0, 0) perspective(1px);
+    & * {
+      transform: none;
+    }
+    z-index: 10;
+  }
+}

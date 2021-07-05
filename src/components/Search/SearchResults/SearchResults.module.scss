@@ -3,15 +3,30 @@ $background: #edebf37c;
 .searchResults {
   position: relative;
   margin-top: 2rem;
-  height: 85vh;
-  background-color: $background;
   border-radius: 10px;
-  width: 95%;
-  left: 2.5%;
+  height: 100vh;
+  width: 100vw;
   display: flex;
+  animation: blur 800ms;
+  & h1 {
+    margin-top: 10rem;
+    width: 100%;
+    text-align: center;
+  }
+  @media screen and (min-width: 900px) {
+    width: 90vw;
+    height: 85vh;
+  }
 }
 
 .products {
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    #000000 3%,
+    #000000 97%,
+    transparent 100%
+  );
   padding: 1rem;
   display: flex;
   flex-wrap: wrap;
@@ -22,7 +37,7 @@ $background: #edebf37c;
 }
 
 .blur {
-  animation: blur 1000ms;
+  animation: blur 800ms;
 }
 
 @keyframes blur {

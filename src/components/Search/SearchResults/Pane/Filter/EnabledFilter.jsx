@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useRef } from "react";
 import styles from "./Filter.module.scss";
 
 import Value from "./Filters/Value";
@@ -6,9 +6,6 @@ import Color from "./Filters/Color";
 import Range from "./Filters/Range";
 
 const Filter = (props) => {
-  const [expander, setExpandeder] = useState(false);
-  const [expanded, setExpanded] = useState(false);
-
   const name = props.filterData.name;
   const displayName = props.filterData.displayName;
   const refinements = props.filterData.refinements;
@@ -26,39 +23,13 @@ const Filter = (props) => {
 
   const filterTitle = useRef(null);
 
-  // if the filter container's height isn't more than 140px,
-  // then there's no need for an expander button
-  useEffect(() => {
-    const title = filterTitle.current;
-    const contentHeight = title.nextSibling.offsetHeight;
-    setExpandeder(contentHeight > 150);
-  }, []);
-
   return (
     <div className={styles.category}>
-      <div
-        className={styles.title}
-        onClick={() => setExpanded(expanded ? false : true)}
-        ref={filterTitle}
-      >
+      <div className={styles.title} ref={filterTitle}>
         {displayName}
-        {expander &&
-          (expanded ? (
-            <img
-              src="/img/arrows-v.svg"
-              alt="expand"
-              className={`${styles.invert} ${styles.fade}`}
-            />
-          ) : (
-            <img
-              src="/img/arrow-down.svg"
-              alt="expand"
-              className={`${styles.invert} ${styles.fade}`}
-            />
-          ))}
       </div>
       <div
-        className={`${styles.refinements} ${expanded ? styles.expanded : ""} ${
+        className={`${styles.refinements} ${
           displayName === "Color" ? styles.colors : ""
         }`}
       >
@@ -66,7 +37,7 @@ const Filter = (props) => {
           if (displayName === "Color") {
             return (
               <Color
-                enabled={false}
+                enabled={true}
                 refinement={{ ...refinement, navigationName: name }}
                 key={refinement.value}
                 handleFilter={props.handleFilter}
@@ -75,7 +46,7 @@ const Filter = (props) => {
           } else if (type === "Range") {
             return (
               <Range
-                enabled={false}
+                enabled={true}
                 refinement={{ ...refinement, navigationName: name }}
                 key={refinement.low}
                 handleFilter={props.handleFilter}
@@ -84,7 +55,7 @@ const Filter = (props) => {
           } else {
             return (
               <Value
-                enabled={false}
+                enabled={true}
                 refinement={{ ...refinement, navigationName: name }}
                 key={refinement.value}
                 handleFilter={props.handleFilter}

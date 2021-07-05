@@ -1,0 +1,223 @@
+.nav {
+  user-select: none;
+  position: absolute;
+  padding: 0 0.7rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: -1.5rem;
+  right: 2%;
+  height: 2.5rem;
+  background-color: #dedeeb;
+  box-shadow: 5px 5px 15px 2px #1818182a;
+  border-radius: 25px;
+  z-index: 6;
+  filter: opacity(0.3);
+  transition: 2000ms;
+  @media screen and (min-width: 900px) {
+    margin-top: -1.5rem;
+  }
+  &:hover {
+    transition: 150ms;
+    filter: opacity(1);
+  }
+
+  /* P A G E  S I Z I N G */
+
+  & .pageSize {
+    margin: 0 1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 3rem;
+    height: 80%;
+    border-radius: 25px;
+    transition: 2000ms;
+    padding: 0.2rem;
+    font-weight: 500;
+
+    &:hover {
+      transition: 150ms;
+      background-color: #343142;
+      color: #dedeeb;
+    }
+
+    & .activeSize {
+      cursor: pointer;
+      position: fixed;
+    }
+
+    & .pageBubble {
+      display: none;
+      margin-right: 0.25rem;
+      margin-left: 0.25rem;
+      align-items: center;
+      justify-content: center;
+      min-width: 2.5rem;
+      min-height: 2.5rem;
+      border-radius: 50%;
+      transition: 300ms;
+      color: #343142;
+      background-color: #dedeeb;
+      box-shadow: 0px 0px 10px #1818182a;
+    }
+
+    & .pageOpen {
+      display: flex;
+      animation: openPageBubbles 500ms both;
+      &:hover {
+        transition: 300ms;
+        background-color: #000;
+        color: #dedeeb;
+      }
+    }
+  }
+
+  /* P A G E   C O N T R O L S */
+
+  & .page {
+    margin-left: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    position: relative;
+
+    & .currentPage {
+      cursor: pointer;
+      transition: 2000ms;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 3rem;
+      height: 80%;
+      border-radius: 25px;
+      font-weight: 500;
+      margin: 0 0.7rem;
+
+      &:hover {
+        transition: 150ms;
+        color: #dedeeb;
+        background-color: #343142;
+      }
+    }
+
+    & .totalPages {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 3rem;
+      height: 80%;
+      border-radius: 25px;
+      margin: 0 0.1rem;
+      font-weight: 500;
+    }
+
+    & .pageControls {
+      display: none;
+      box-shadow: 0px 0px 10px #1818182a;
+      position: absolute;
+      margin-right: 0.25rem;
+      margin-left: 0.25rem;
+      align-items: center;
+      padding: 0 0.3rem;
+      justify-content: space-between;
+      width: 12rem;
+      height: 2.5rem;
+      border-radius: 25px;
+      background-color: #dedeeb;
+      transition: 300ms;
+
+      & .control,
+      .pageInput {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 2rem;
+        height: 2rem;
+        background-color: #dedeeb;
+        border-radius: 25px;
+        cursor: pointer;
+        &:hover {
+          transition: 300ms;
+          background-color: #343142;
+          color: #dedeeb;
+        }
+      }
+
+      & .pageInputContainer {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 2rem;
+        background-color: #ffffff;
+        border-radius: 25px;
+        width: 6rem;
+        & .check {
+          cursor: pointer;
+          color: #1a641a;
+          width: 1.5rem;
+          height: 1.5rem;
+          transition: 500ms;
+          text-align: center;
+          border-radius: 25px;
+          &:hover {
+            transition: 200ms;
+            background-color: #029928;
+            color: #dedeeb;
+          }
+        }
+        & .pageInput {
+          outline: none;
+          border: none;
+          text-align: center;
+          cursor: text;
+          background-color: #ffffff;
+          font-size: 1.2rem;
+          height: 1.5rem;
+          width: 3rem;
+          margin-right: 0.5rem;
+          font-weight: 500;
+          caret-color: #00000046;
+          user-select: all;
+          &::selection {
+            background-color: #00000021;
+          }
+          &:hover {
+            transition: 300ms;
+            color: #343142;
+            background-color: #ffffff;
+          }
+        }
+      }
+
+      &.controlsOpen {
+        display: flex;
+        animation: openPageControls 500ms both;
+      }
+    }
+  }
+}
+
+@keyframes openPageBubbles {
+  0% {
+    transform: translateY(0rem) scale(1);
+    filter: opacity(0);
+  }
+  100% {
+    transform: translateY(3rem) scale(1);
+    filter: opacity(1);
+  }
+}
+
+@keyframes openPageControls {
+  0% {
+    transform: translateY(0rem) scale(1);
+    filter: opacity(0);
+  }
+  100% {
+    transform: translateY(3rem) scale(1);
+    filter: opacity(1);
+  }
+}
