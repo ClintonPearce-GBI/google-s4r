@@ -8,10 +8,13 @@ const Pane = (props) => {
   const query = props.query;
 
   const [expanded, setExpanded] = useState(false);
+  const [flipped, setFipped] = useState(false);
+
+  console.log(flipped);
 
   return (
-    <>
-      {/* this is the filter page toggle */}
+    <div className={styles.flipOuter}>
+      {/* this is the filter page toggle for mobile */}
       <div
         className={[styles.toggle, expanded ? styles.expanded : ""].join(" ")}
         onClick={() => setExpanded(expanded ? false : true)}
@@ -23,12 +26,18 @@ const Pane = (props) => {
         ></div>
         <div>{expanded ? "❮" : "❯"}</div>
       </div>
+      {/* this is the pane wrapper */}
       <div
-        className={[styles.resultsPane, expanded ? styles.expanded : ""].join(
-          " "
-        )}
+        className={[
+          styles.resultsPane,
+          expanded ? styles.expanded : "",
+          flipped ? styles.flipped : "",
+        ].join(" ")}
       >
-        <div className={styles.cap}>
+        <div
+          className={styles.cap}
+          onClick={() => setFipped(flipped ? false : true)}
+        >
           <p>
             <strong>{props.totalProducts.toLocaleString()}&nbsp;</strong>
             {query ? (
@@ -73,7 +82,7 @@ const Pane = (props) => {
             );
           })}
       </div>
-    </>
+    </div>
   );
 };
 

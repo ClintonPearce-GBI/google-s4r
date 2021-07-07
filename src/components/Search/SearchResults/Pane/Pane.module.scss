@@ -1,96 +1,106 @@
-.resultsPane {
-  display: none;
-  border-radius: 10px 0 0 10px;
-  max-width: 20rem;
-  min-width: 20rem;
-  min-height: 40rem;
-  flex-direction: column;
-  flex-grow: 1;
-  padding-bottom: 1rem;
+.flipOuter {
   background-color: #dedeeb;
-
+  border-radius: 10px 0 0 10px;
   perspective: 1000px;
-  @media screen and (min-width: 900px) {
-    display: flex;
-  }
-  &.expanded {
-    position: fixed;
-    display: flex;
-    width: 100vw !important;
-    height: 100vh !important;
-    min-width: unset;
-    max-width: unset;
-    min-height: unset;
-    max-height: unset;
-    top: 0% !important;
-    z-index: 8;
-    & .cap {
-      border-radius: 0;
-    }
-  }
-}
-
-.cap {
-  background-color: #343142;
-  color: #fff;
-  height: 5rem;
-  min-height: 5rem;
-  border-radius: 10px 0 0 0;
-  width: 100%;
-  font-size: 1.5rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  & p {
-    margin: 0;
-  }
-}
-
-.toggle {
-  opacity: 0.5;
-  display: flex;
-  position: fixed;
-  top: 50%;
-  color: white;
-  width: 2.5rem;
-  font-size: 3rem;
-  line-height: 3rem;
-  background-color: #343142;
-  border-top-right-radius: 50%;
-  border-bottom-right-radius: 50%;
-  padding: 2px;
-  z-index: 10;
-  align-content: center;
-  justify-content: center;
-  & .vert {
-    writing-mode: vertical-lr;
-    font-size: 0.7rem;
-    line-height: 0.7rem;
-    text-align: center;
-    &.left {
-      &::after {
-        content: "FILTERS";
-        writing-mode: vertical-lr;
-        font-size: 0.7rem;
-        line-height: 0.7rem;
-        text-align: center;
-      }
-    }
-    &.right {
-      &::after {
-        content: "" !important;
-      }
-    }
-  }
-  &.expanded {
-    right: 0;
-    border-top-right-radius: 0%;
-    border-bottom-right-radius: 0%;
-    border-top-left-radius: 50%;
-    border-bottom-left-radius: 50%;
-  }
-  @media screen and (min-width: 900px) {
+  & .resultsPane {
     display: none;
+    border-radius: 10px 0 0 10px;
+    max-width: 20rem;
+    min-width: 20rem;
+    min-height: 40rem;
+    flex-direction: column;
+    flex-grow: 1;
+    padding-bottom: 1rem;
+    background-color: #dedeeb;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    transition: all 0.8s;
+    @media screen and (min-width: 900px) {
+      display: flex;
+    }
+    &.flipped {
+      transform: rotateY(180deg);
+      backface-visibility: hidden;
+    }
+    &.expanded {
+      position: fixed;
+      display: flex;
+      width: 100vw !important;
+      height: 100vh !important;
+      min-width: unset;
+      max-width: unset;
+      min-height: unset;
+      max-height: unset;
+      top: 0% !important;
+      z-index: 8;
+      & .cap {
+        border-radius: 0;
+      }
+    }
+  }
+
+  .cap {
+    background-color: #343142;
+    color: #fff;
+    height: 5rem;
+    min-height: 5rem;
+    border-radius: 10px 0 0 0;
+    width: 100%;
+    font-size: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    & p {
+      margin: 0;
+    }
+  }
+
+  .toggle {
+    opacity: 0.5;
+    display: flex;
+    position: fixed;
+    top: 50%;
+    color: white;
+    width: 2.5rem;
+    font-size: 3rem;
+    line-height: 3rem;
+    background-color: #343142;
+    border-top-right-radius: 50%;
+    border-bottom-right-radius: 50%;
+    padding: 2px;
+    z-index: 10;
+    align-content: center;
+    justify-content: center;
+    & .vert {
+      writing-mode: vertical-lr;
+      font-size: 0.7rem;
+      line-height: 0.7rem;
+      text-align: center;
+      &.left {
+        &::after {
+          content: "FILTERS";
+          writing-mode: vertical-lr;
+          font-size: 0.7rem;
+          line-height: 0.7rem;
+          text-align: center;
+        }
+      }
+      &.right {
+        &::after {
+          content: "" !important;
+        }
+      }
+    }
+    &.expanded {
+      right: 0;
+      border-top-right-radius: 0%;
+      border-bottom-right-radius: 0%;
+      border-top-left-radius: 50%;
+      border-bottom-left-radius: 50%;
+    }
+    @media screen and (min-width: 900px) {
+      display: none;
+    }
   }
 }
