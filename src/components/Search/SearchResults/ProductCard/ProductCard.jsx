@@ -29,6 +29,22 @@ const ProductCard = React.memo((props) => {
   return (
     <div className={styles.container}>
       <div>
+        {activeVariant.priceInfo.originalPrice >
+        activeVariant.priceInfo.price ? (
+          <div className={styles.percent}>
+            <span className={styles.savePercent}>
+              Save{" "}
+              {100 -
+                Math.floor(
+                  (activeVariant.priceInfo.price /
+                    activeVariant.priceInfo.originalPrice) *
+                    100
+                )}
+            </span>
+          </div>
+        ) : (
+          ""
+        )}
         <img className={styles.productImage} src={image} alt={props.title} />
         {colors.length > 1 ? (
           <Variants
@@ -56,16 +72,6 @@ const ProductCard = React.memo((props) => {
             <span className={styles.discount}>
               <span className={styles.originalPrice}>
                 ${activeVariant.priceInfo.originalPrice}
-              </span>
-              <span className={styles.percent}>
-                Save{" "}
-                {100 -
-                  Math.floor(
-                    (activeVariant.priceInfo.price /
-                      activeVariant.priceInfo.originalPrice) *
-                      100
-                  )}
-                %
               </span>
             </span>
             <span className={[styles.price].join(" ")}>

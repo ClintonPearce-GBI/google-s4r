@@ -8,6 +8,8 @@
   flex-grow: 1;
   padding-bottom: 1rem;
   background-color: #dedeeb;
+
+  perspective: 1000px;
   @media screen and (min-width: 900px) {
     display: flex;
   }
@@ -32,6 +34,7 @@
   background-color: #343142;
   color: #fff;
   height: 5rem;
+  min-height: 5rem;
   border-radius: 10px 0 0 0;
   width: 100%;
   font-size: 1.5rem;

@@ -49,6 +49,8 @@ const Pane = (props) => {
             return (
               <EnabledFilter
                 key={filter.displayName}
+                displayName={filter.displayName}
+                or={filter.or}
                 filterData={filter}
                 handleFilter={props.handleFilter}
               />
@@ -56,12 +58,18 @@ const Pane = (props) => {
           })}
         {props.filters &&
           props.filters.map((filter) => {
-            return (
+            return ["Categories", "Price", "Sizes", "Brand", "Color"].includes(
+              filter.displayName
+            ) ? (
               <Filter
                 key={filter.displayName}
+                displayName={filter.displayName}
+                or={filter.or}
                 filterData={filter}
                 handleFilter={props.handleFilter}
               />
+            ) : (
+              ""
             );
           })}
       </div>
